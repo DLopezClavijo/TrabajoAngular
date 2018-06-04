@@ -98,6 +98,67 @@ function updateTeam(req,res){
     });
 }
 
+
+function uploadImage(req,res){
+    //RECOGER EL ID DEL EQUIPO QUE NOS LLEGA EN EL REQUEST
+    var teamId = req.params.id
+
+    //VARIABLE PARA EL FICHERO
+    var file_name = 'No encontrado';
+
+    //SI EN LA PETICION DEL REQ VIENE EL FICHERO,SUBIMOS
+    if(req.files){
+        var file_path = req.files.image.path;
+        //TRATAR EL APTH DEL FICHERO PARA CONSEGUIR EL NOMBRE
+        var file_split = file_path.split('\\');
+        file_name = file_split[2];
+
+        //RECORTAR PARA SACAR LA EXTENSION DEL FICHERO
+        var extension_split = file_name.split('\.');
+        var file_ext = extension_split[1];
+        
+
+        //COMPROBAMOS SI LA EXTENSION ES CORRECTO
+        if(file_ext =='png' || file_ext =='jpg' || file_ext =='gid'){
+            
+            Team.findByIdAndUpdate(teamId,{image:file_name},(err,userUpdated)=>{
+                if(err){
+                    res.status(500).send({message:'ERROR EN LA PETICION'});
+                }else{
+                    if(!teamUpdated){
+                        res.status(404).send({message:'NO SE HA PODIDO ACTUALIZAR IMAGEN'});
+                    }else{
+                        res.status(200).send({team:teamUpdated});
+                    }
+                } 
+            });
+        }else{
+            res.status(200).send({message:'FORMATO INCORRECTO'})
+        }
+        console.log(file_path);
+    }else{
+        res.status(200).send({message:'NO SE HA SUBIDO NINGUNA IMAGEN'})
+    }
+
+}
+function getImageFile(req,res){
+    //OBTENEMOS DEL REQUEST EL NOMBRE DEL FICHERO
+    var imageFile = req.params.imageFile;
+
+    //RUTA DEL FICHERO
+    var path_file = './uploads/teams/' + imageFile;
+    //SI FICHERO EXISTE
+    fs.exists(path_file,function(exists){
+       if(exists){
+           //RESPUEST HTTP ENVIANDO EL FICHERO QUE ACABAMOS DE RESOLVER CON EL PATH DE LA RUTA
+           res.sendFile(path.resolve(path_file));
+       }else{
+           res.status(200).send({message:'NO EXISTE LA IMAGEN'});
+       }
+    });
+}
+
+
 function deleteTeam(req,res){
     //OBT ID DEL EQUIPO
     var teamId = req.params.id;
@@ -126,10 +187,13 @@ function deleteTeam(req,res){
     });
 }
 
+
 module.exports={
     getTeam,
     saveTeam,
     getTeams,
     updateTeam,
-    deleteTeam
+    deleteTeam,
+    uploadImage,
+    getImageFile
 }

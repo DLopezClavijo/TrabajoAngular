@@ -164,7 +164,7 @@ function uploadImage(req,res){
      var imageFile = req.params.imageFile;
 
      //RUTA DEL FICHERO
-     var path_file = './uploads/users' + imageFile;
+     var path_file = './uploads/users/' + imageFile;
      //SI FICHERO EXISTE
      fs.exists(path_file,function(exists){
         if(exists){
