@@ -99,7 +99,7 @@ function updateTeam(req,res){
 }
 
 
-function uploadImage(req,res){
+/*function uploadImage(req,res){
     //RECOGER EL ID DEL EQUIPO QUE NOS LLEGA EN EL REQUEST
     var teamId = req.params.id
 
@@ -118,7 +118,7 @@ function uploadImage(req,res){
         var file_ext = extension_split[1];
         
 
-        //COMPROBAMOS SI LA EXTENSION ES CORRECTO
+        //COMPROBAMOS SI LA EXTENSION ES CORRECTA
         if(file_ext =='png' || file_ext =='jpg' || file_ext =='gid'){
             
             Team.findByIdAndUpdate(teamId,{image:file_name},(err,userUpdated)=>{
@@ -157,7 +157,7 @@ function getImageFile(req,res){
        }
     });
 }
-
+*/
 
 function deleteTeam(req,res){
     //OBT ID DEL EQUIPO
@@ -193,7 +193,7 @@ module.exports={
     saveTeam,
     getTeams,
     updateTeam,
-    deleteTeam,
-    uploadImage,
-    getImageFile
+    deleteTeam
+    //uploadImage,
+    //getImageFile
 }

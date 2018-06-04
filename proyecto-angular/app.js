@@ -12,8 +12,8 @@ var app = express();
 // CARGAR EL FICHERO DE RUTAS DEL CONTROLADOR DE USUARIOS
 var user_routes = require('./routes/user');
 
-// CARGAR EL FICHERO DE RUTAS DEL CONTROLADOR DE JUGADORES
-//var player_routes = require('./routes/player');
+//CARGAR EL FICHERO DE RUTAS DEL CONTROLADOR DE JUGADORES
+var player_routes = require('./routes/player');
 
 // CARGAR EL FICHERO DE RUTAS DEL CONTROLADOR DE EQUIPOS
 var team_routes = require('./routes/team');
@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 //DETRAS DE CADA URL CON PETICION DE /API CARGAREMOS UNA PETICION A LA RUTA DE USER
 app.use('/api', user_routes);
 app.use('/api', team_routes);
-//app.use('/api',player_routes);
+app.use('/api',player_routes);
 
 
 //EXPORTAR EL MODULO
