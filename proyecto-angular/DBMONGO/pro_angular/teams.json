@@ -1,0 +1,17 @@
+{ 
+    "_id" : ObjectId("5b142bd6640d491d808d6aec"), 
+    "image" : "null", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5b142ca498d6ca19c0715ff0"), 
+    "image" : "null", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5b143508ac0e640a1c1a93ef"), 
+    "name" : "equipo1", 
+    "description" : "Uno dos tres", 
+    "image" : "null", 
+    "__v" : NumberInt(0)
+}

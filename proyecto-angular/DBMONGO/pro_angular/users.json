@@ -1,0 +1,20 @@
+{ 
+    "_id" : ObjectId("5b13b73d8c5f5b0d287f3a1d"), 
+    "name" : "nombre", 
+    "surname" : "apell", 
+    "email" : "correo@gmail.com", 
+    "role" : "ROLE_USER", 
+    "image" : "null", 
+    "password" : "$2a$10$SrORcfSCXk0G7CpwSyaLDu8JLTerL9msW8huAVCsOrZvQTVu3GwmC", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5b13b9e06d78142618b20b25"), 
+    "name" : "administrator", 
+    "surname" : "admin admin", 
+    "email" : "adming@admin.com", 
+    "role" : "ROLE_ADMIN", 
+    "image" : "VLBoYrX-jTaEfeMxU3TlxPAX.jpg", 
+    "password" : "$2a$10$WuDA6xe25UJMnpkUWnXhTOsLCvdzccVE3bY9VPiiB4l0GIcYSf8Bi", 
+    "__v" : NumberInt(0)
+}
