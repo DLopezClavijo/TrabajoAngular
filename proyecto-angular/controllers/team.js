@@ -98,9 +98,38 @@ function updateTeam(req,res){
     });
 }
 
+function deleteTeam(req,res){
+    //OBT ID DEL EQUIPO
+    var teamId = req.params.id;
+
+    Team.findByIdAndRemove(teamId,(err,teamRemoved)=>{
+        if(err){
+            res.status(500).send({message:'ERROR AL BORRAR EL EQUIPO'});
+        }else{
+            if(!teamRemoved){
+                res.status(404).send({message:'Equipo no se ha borrado'});
+            }else{
+                //BUSCAMOS LOS JUGADORES EN EL EQUIPO Y LO BORRAMOS
+                Player.find({team: teamRemoved._id}).remove((err,playerRemoved)=>{
+                    if(err){
+                        res.status(500).send({message:'ERROR AL BORRAR EL JUGADOR'});
+                    }else{
+                        if(!playerRemoved){
+                            res.status(404).send({message:'jugador no se ha borrado'});
+                        }else{
+                            res.status(200).send({teamRemoved});
+                        }
+                    }
+                })     
+            }
+        }
+    });
+}
+
 module.exports={
     getTeam,
     saveTeam,
     getTeams,
-    updateTeam
+    updateTeam,
+    deleteTeam
 }

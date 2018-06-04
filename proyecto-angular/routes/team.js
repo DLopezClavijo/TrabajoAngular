@@ -17,6 +17,7 @@ api.get('/team/:id',md_auth.ensureAuth ,TeamController.getTeam);
 api.post('/team',md_auth.ensureAuth,TeamController.saveTeam);
 api.get('/teams/:page?',md_auth.ensureAuth ,TeamController.getTeams)
 api.put('/teams/:id',md_auth.ensureAuth,TeamController.updateTeam);
+api.delete('/team/:id',md_auth.ensureAuth,TeamController.deleteTeam);
 
 //EXPORT LA API PARA PODER UTILIZARLA FUERA DEL 
 //FICHERO Y ASI TODAS LAS RUTAS FUNCIONEN EN EL BACKEND
