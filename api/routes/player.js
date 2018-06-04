@@ -15,9 +15,9 @@ var api = express.Router();
 
 api.get('/player/:id',md_auth.ensureAuth ,PlayerController.getPlayer);
 api.post('/player',md_auth.ensureAuth,PlayerController.savePlayer);
-api.get('/players/:page?',md_auth.ensureAuth ,PlayerController.getplayers)
-api.put('/players/:id',md_auth.ensureAuth,PlayerController.updatePlayer);
-api.delete('/player/:id',md_auth.ensureAuth,PlayerController.deletePlayer);
+api.get('/players/:team?',md_auth.ensureAuth ,PlayerController.getPlayers);
+api.put('/player/:id',md_auth.ensureAuth,PlayerController.updatePlayer);
+api.delete('/player/:id',md_auth.ensureAuth,PlayerController.deletePlayer); 
 //api.post('/upload-image-player/:id',[md_auth.ensureAuth,md_upload],playerController.uploadImage);
 //api.get('/get-image-player/:imageFile',playerController.getImageFile);
 

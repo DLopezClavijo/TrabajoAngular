@@ -117,7 +117,7 @@ function updateUser(req,res){
         }
     });
 }
-
+/*
 function uploadImage(req,res){
     //RECOGER EL ID DEL USUARIO QUE NOS LLEGA EN EL REQUEST
     var userId = req.params.id
@@ -175,13 +175,13 @@ function uploadImage(req,res){
         }
      });
  }
-
+*/
 //PARA PODER USAR LAS FUNCIONES ENNUNA RUTA FUERA DEL FICHERO
 module.exports={
     pruebas,
     saveUser,
     loginUser,
-    updateUser,
-    uploadImage,
-    getImageFile
+    updateUser
+    // uploadImage,
+    // getImageFile
 }

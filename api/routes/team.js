@@ -15,7 +15,7 @@ var api = express.Router();
 
 api.get('/team/:id',md_auth.ensureAuth ,TeamController.getTeam);
 api.post('/team',md_auth.ensureAuth,TeamController.saveTeam);
-api.get('/teams/:page?',md_auth.ensureAuth ,TeamController.getTeams)
+api.get('/teams/:page?',md_auth.ensureAuth ,TeamController.getTeams);
 api.put('/teams/:id',md_auth.ensureAuth,TeamController.updateTeam);
 api.delete('/team/:id',md_auth.ensureAuth,TeamController.deleteTeam);
 //api.post('/upload-image-team/:id',[md_auth.ensureAuth,md_upload],TeamController.uploadImage);
