@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import {User} from './models/user';
+import {UserService} from './services/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[UserService]
 })
 export class AppComponent {
   title = 'Crea Equipos';
@@ -14,7 +16,7 @@ export class AppComponent {
 
   public token;
   
-  constructor(){
+  constructor(private _userService:UserService){
     //asignar un valor por defecto al usuario
     this.user = new User('','','','','','ROLE_USER','');
   }
@@ -23,5 +25,6 @@ export class AppComponent {
 
   }
   public onSubmit(){
-    console.log(this.user);
+    console.log(this._userService.signUp());
   }
+}
