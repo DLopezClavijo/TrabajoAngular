@@ -1,44 +1,27 @@
 import { Component } from '@angular/core';
-
+import {User} from './models/user';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Trabajo Angular';
+  title = 'Crea Equipos';
   
-  public nombre:string;
-  public edad:number;
-  public mayorEdad:boolean;
-  public trabajos:Array<any>=['profesor', true, 450000 ,'conductor'];
-  public aux:any;
+  public user: User;
+  
+  public identity;
 
-
+  public token;
+  
   constructor(){
-    this.nombre = 'Daniel';
-    this.edad = 89;
-    this.mayorEdad = true;
-    this.aux = 'Cadena';
+    //asignar un valor por defecto al usuario
+    this.user = new User('','','','','','ROLE_USER','');
   }
 
   ngOnInit(){
-    this.cambiarNombre();
-    this.cambiarEdad(55);
-
-    var uno =6;
-    if(uno==6){
-      let uno = 9;
-      console.log(uno);
-    }
-    console.log(uno);
 
   }
-
-  cambiarNombre(){
-    this.nombre = 'Juan';
+  public onSubmit(){
+    console.log(this.user);
   }
-  cambiarEdad(edad){
-   this.edad=edad;
-  }
-}
